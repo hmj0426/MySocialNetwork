@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/post/postCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">app/post/</a> postCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>12/75</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>12/75</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">angular.module('frontendApp')
+	.controller('PostCtrl',PostCtrl)
+	.factory('UserService', UserService)
+&nbsp;
+<span class="fstat-no" title="function not covered" >function UserService() {</span>
+<span class="cstat-no" title="statement not covered" >	return { username: UserService.username }</span>
+}
+&nbsp;
+PostCtrl.$inject = ['$http', 'apiService', 'UserService']
+<span class="fstat-no" title="function not covered" >function PostCtrl($http, apiService, UserService) {</span>
+<span class="cstat-no" title="statement not covered" >	var vm = this;</span>
+<span class="cstat-no" title="statement not covered" >	vm.username = UserService.username</span>
+<span class="cstat-no" title="statement not covered" >	vm.posts = []</span>
+<span class="cstat-no" title="statement not covered" >	vm.comments = []</span>
+<span class="cstat-no" title="statement not covered" >	vm.editedComment = []</span>
+<span class="cstat-no" title="statement not covered" >	vm.editedPost = []</span>
+<span class="cstat-no" title="statement not covered" >	vm.newComment = []</span>
+<span class="cstat-no" title="statement not covered" >	vm.newPost = ''</span>
+<span class="cstat-no" title="statement not covered" >	console.log(vm.username)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    vm.loadPost = loadPost</span>
+<span class="cstat-no" title="statement not covered" >    vm.addPost = addPost </span>//this two functions are used in main.html
+<span class="cstat-no" title="statement not covered" >    vm.cancelNewPost = cancelNewPost</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    vm.showEditPost = showEditPost</span>
+<span class="cstat-no" title="statement not covered" >    vm.editPost = editPost</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    vm.showComment = showComment</span>
+<span class="cstat-no" title="statement not covered" >    vm.addComment = addComment</span>
+<span class="cstat-no" title="statement not covered" >    vm.editComment = editComment</span>
+&nbsp;
+    //following 3 vars decide the show/hidden
+<span class="cstat-no" title="statement not covered" >    vm.edit = []</span>
+<span class="cstat-no" title="statement not covered" >    vm.comment = []</span>
+<span class="cstat-no" title="statement not covered" >    vm.showEditComment = []</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    loadPost()</span>
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function loadPost() {</span>
+<span class="cstat-no" title="statement not covered" >		vm.posts.length = 0</span>
+<span class="cstat-no" title="statement not covered" >		apiService.getPosts().$promise.then(<span class="fstat-no" title="function not covered" >function(result) {</span></span>
+<span class="cstat-no" title="statement not covered" >			console.log('load post', result)</span>
+<span class="cstat-no" title="statement not covered" >			result.posts.forEach(<span class="fstat-no" title="function not covered" >function(post) {</span></span>
+<span class="cstat-no" title="statement not covered" >				vm.posts.push(post)</span>
+			})
+		})
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function addPost(){</span>
+<span class="cstat-no" title="statement not covered" >		if(vm.newPost){</span>
+<span class="cstat-no" title="statement not covered" >			apiService.addPosts({ body: vm.newPost }).$promise.</span>
+			then(<span class="fstat-no" title="function not covered" >function(result){</span>
+<span class="cstat-no" title="statement not covered" >				console.log('add post', result)</span>
+<span class="cstat-no" title="statement not covered" >				vm.posts.push(result.posts[0])</span>
+<span class="cstat-no" title="statement not covered" >				vm.newPost = ''</span>
+			})
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function cancelNewPost(){</span>
+<span class="cstat-no" title="statement not covered" >		vm.newPost = ''</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function showEditPost(postId){</span>
+<span class="cstat-no" title="statement not covered" >		vm.edit[postId] = vm.edit[postId] ? null : true</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function editPost(postId){</span>
+<span class="cstat-no" title="statement not covered" >		var index = vm.posts.findIndex(<span class="fstat-no" title="function not covered" >function(post) { </span></span>
+<span class="cstat-no" title="statement not covered" >             return post.id === postId </span>
+        })
+<span class="cstat-no" title="statement not covered" >        console.log(vm.posts[index].author)</span>
+<span class="cstat-no" title="statement not covered" >		if(index &gt;= 0 &amp;&amp; vm.editedPost[postId] &amp;&amp; vm.posts[index].author == vm.username){</span>
+<span class="cstat-no" title="statement not covered" >			apiService.editPosts({ id:postId, body:vm.editedPost[postId] }).$promise.</span>
+			then(<span class="fstat-no" title="function not covered" >function(result){</span>
+<span class="cstat-no" title="statement not covered" >				console.log('edit post', result)</span>
+<span class="cstat-no" title="statement not covered" >				vm.editedPost[postId] = ''</span>
+<span class="cstat-no" title="statement not covered" >				vm.posts[index] = result.posts[0]</span>
+			})
+		}
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function showComment(postId){</span>
+<span class="cstat-no" title="statement not covered" >		vm.comment[postId] = vm.comment[postId] ? null : true</span>
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function addComment(postId){</span>
+<span class="cstat-no" title="statement not covered" >		var postIndex = vm.posts.findIndex(<span class="fstat-no" title="function not covered" >function(post) { </span></span>
+<span class="cstat-no" title="statement not covered" >             return post.id === postId </span>
+        })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if(postIndex &gt;= 0 &amp;&amp; vm.newComment[postId]){</span>
+<span class="cstat-no" title="statement not covered" >			apiService.editPosts({ user:postId, body:vm.newComment[postId], commentId:-1 }).$promise.</span>
+			then(<span class="fstat-no" title="function not covered" >function(result){</span>
+<span class="cstat-no" title="statement not covered" >				console.log('add comment', result)</span>
+<span class="cstat-no" title="statement not covered" >				vm.posts[postIndex] = result.posts[0]</span>
+<span class="cstat-no" title="statement not covered" >				vm.newComment[postId] = ''</span>
+			})
+		}
+&nbsp;
+	}
+&nbsp;
+<span class="fstat-no" title="function not covered" >	function editComment(postId, commentId){</span>
+<span class="cstat-no" title="statement not covered" >		if (!vm.showEditComment[commentId]){</span>
+<span class="cstat-no" title="statement not covered" >			vm.showEditComment[commentId] = true</span>
+		} else {
+<span class="cstat-no" title="statement not covered" >			var postIndex = vm.posts.findIndex(<span class="fstat-no" title="function not covered" >function(post) { </span></span>
+<span class="cstat-no" title="statement not covered" >	             return post.id === postId </span>
+	        })
+<span class="cstat-no" title="statement not covered" >	        console.log(vm.posts)</span>
+<span class="cstat-no" title="statement not covered" >	        var commentIndex = vm.posts[postIndex].comments.findIndex(<span class="fstat-no" title="function not covered" >function(comment) { </span></span>
+<span class="cstat-no" title="statement not covered" >	             return comment.commentId === commentId </span>
+	        })
+&nbsp;
+	        //console.log(vm.posts[postIndex].comments[commentIndex].author)
+	        
+<span class="cstat-no" title="statement not covered" >	        if(postIndex &gt;= 0 &amp;&amp; commentId &gt;= 0 &amp;&amp; vm.editedComment[commentId] ){</span>
+<span class="cstat-no" title="statement not covered" >				apiService.editPosts({ id:postId, body:vm.editedComment[commentId], commentId: commentId }).$promise.</span>
+				then(<span class="fstat-no" title="function not covered" >function(result){</span>
+<span class="cstat-no" title="statement not covered" >					console.log('edit comment', result)</span>
+<span class="cstat-no" title="statement not covered" >					vm.posts[postIndex] = result.posts[0]</span>
+<span class="cstat-no" title="statement not covered" >					vm.editedComment[commentId] = ''</span>
+<span class="cstat-no" title="statement not covered" >					vm.showEditComment[commentId] = null	</span>
+				})
+			}
+		}
+	}
+&nbsp;
+}
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Mar 11 2016 21:30:44 GMT-0600 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

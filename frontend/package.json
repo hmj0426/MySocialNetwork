@@ -1,0 +1,26 @@
+{
+  "name": "hw5-frontend",
+  "version": "1.0.0",
+  "description": "{       \"netid\": \"mh58\",   \"frontend\": \"https://mengjinapp.herokuapp.com\" }",
+  "main": "indexCtrl.js",
+  "dependencies": {
+    "mongoose": "^4.4.10"
+  },
+  "devDependencies": {
+    "angular": "^1.5.0",
+    "angular-mocks": "^1.5.0",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.5",
+    "karma-jasmine": "^0.3.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

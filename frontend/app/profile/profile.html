@@ -1,0 +1,169 @@
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="">GoZone</a>
+		</div>
+		<div>
+  			<ul class="nav navbar-nav">  
+	    		<li class="{ active: (vm.$location.path() == '/main') }"><a href="#/main">Main Page</a></li>
+	    		<li class="{ active: (vm.$location.path() == '/profile') }"><a href="#/profile">User Profile</a></li>
+    		</ul>
+    	</div>
+		</div>
+</nav>
+
+<div class="body" ng-controllor='ProfileCtrl'>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-push-6"> <!-- Logo -->
+				<div class="circlehead">
+					<h1 class="welcome">Welcome to GoZone</h1>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-md-pull-6"> <!-- Profile Picture -->
+				<div class="tablecontainer deco">
+					<table align="center">
+						<tr align="center">
+							<td><button class="btn btn-link btn-inline" ng-click="vm.main()">Main Page</button></td>
+						</tr>
+						<tr align="center">
+							<td><img ng-src="{{ vm.profileImg }}" class="img-circle img-responsive icon" alt="Profile image"></td>
+						</tr>
+						<tr align="center">
+							<td>
+								<label for="files"> <span class="btn btn-primary btn-block">Upload New Picture</span></label>
+								<input style="visibility: hidden;position:absolute;" id="files" 
+									class="form-control" type="file" accept="image/*" 
+									onchange="angular.element(this).scope().vm.setFile(this.files)" 
+									name="files">
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div> <!-- close table container -->
+		</div> <!-- Close row -->
+
+        <div id="profile_change" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Notification</h4>
+              </div>
+              <div class="modal-body">
+                <p>You have successfully changed your profile picture.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>		
+
+		<div class="row">
+			<div class="col-md-6">  <!-- Current Info -->
+				<div class="tablecontainer deco"> 
+					<table class="currentinfo" align="center">
+						<tr>
+							<th>Current Information</th>
+						</tr>
+						<tr>
+							<td>Username: <span>{{ vm.username }}</span></td>
+						</tr>
+						<tr>
+							<td>Email: <span id="profile_email">{{ vm.email }}</span></td>
+						</tr>
+						<tr>
+							<td>Zip Code: <span id="profile_zip">{{ vm.zipcode }}</span></td>
+						</tr>
+						<tr ng-hide="vm.thirdPartyAccount">
+							<td>Third Party ID (currently only Facebook supported): {{ vm.facebookId }}</span></td>
+						</tr>
+						<tr>
+							<td>
+								<button ng-show="vm.thirdPartyAccount" type="submit" class="btn btn-primary btn-block" ng-click="vm.linkAccountInfo()">Link Account to GoZone's Account</button>
+								<button ng-show="vm.unlinkButton" type="submit" class="btn btn-primary btn-block" ng-click="vm.unlinkAccount()">Unlink the Third Party Account</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div id="linkAccountModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modal-title">Please Input Your Username And Password</h4>
+                        </div>
+                      	<form role="form">
+	                      <div class="modal-body">
+	                      	<div>Watch Out! If you link your current third party account to a GoZone account and your profile information(email and zipcode), followings and posts don't match, your profile information, followings and posts will change to the one of GoZone account's, which means your current profile information will lose. <br><br></div>
+	                        <div class="form-group">
+								<label>Username: </label><br>
+								<input type="text" class="form-control" ng-model="vm.modalUsername" required>
+							</div>
+							<div class="form-group">
+			                    <label>Password:</label><br>
+			                    <input type="password" ng-model='vm.modalPsw' class="form-control" required>
+			                </div>
+			                <div style='color:red' ng-show="vm.failLinkAccount">Your username or password is wrong, please type them again.<br></div>
+	                      </div>
+	                      <div class="modal-footer">
+	                        <button type="submit" class="btn btn-default" ng-click="vm.linkAccount()">Submit</button>
+	                      </div>
+	                    </form>
+                    </div>
+                </div>
+            </div>
+
+	        <div id="unlink" class="modal fade" role="dialog">
+	          <div class="modal-dialog">
+	            <!-- Modal content-->
+	            <div class="modal-content">
+	              <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                <h4 class="modal-title">Notification</h4>
+	              </div>
+	              <div class="modal-body">
+	                <p>You have successfully unlink accounts. When you login with your third party account next time, it will not direct to this account.</p>
+	              </div>
+	              <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+
+			<div class="col-md-6"> <!-- Update Info -->
+				<div class="tablecontainer deco">
+					<h2 id="update-profile">Change Your Profile</h2>					
+					<div class="form-group">
+						<label>Email Address: </label><br>
+						<input type="email" class="form-control" ng-model="vm.newEmail" placeholder="eg. xxx@rice.edu" required>
+					</div>
+
+					<div class="form-group">
+						<label>Zipcode: </label><br>
+						<input type="text" class="form-control" ng-model="vm.newZip" 
+							placeholder="eg. 77005" pattern="\d\d\d\d\d" required>
+					</div>
+					<div class="form-group" ng-hide="vm.thirdPartyAccount">
+						<label>New Password: </label><br>
+						<input type="password" class="form-control" ng-model="vm.newPassword" name="psw" id="psw" required>
+					</div>
+					<div class="form-group" ng-hide="vm.thirdPartyAccount">
+						<label>New Password Confirmation: </label><br>
+						<input type="password" class="form-control" ng-model="vm.newPassword2" name="psw" id="psw" required>
+					</div>
+					<div style='color:red' ng-show="vm.formAlert">If you want to change your profile, please input new profile information in above text areas in right formats.</div>
+					<div style='color:red' ng-show="vm.pswNotMatch">The new password and password confirmation don't match.</div>	
+					<button type="submit" class="btn btn-primary btn-block updateP" ng-click="vm.updateProfile()">Update Information</button>			
+				</div> <!-- close form container -->
+			</div>  
+		</div>  <!-- close row -->
+	</div>  <!-- close grid container -->
+</div>

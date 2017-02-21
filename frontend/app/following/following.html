@@ -1,0 +1,24 @@
+<div ng-controller="FollowingCtrl as vm">  
+	<div class="tablecontainer deco" align="center">
+		<table>
+			<tr align="center" ng-repeat="following in vm.followings">
+				<td>
+					<img class="img-circle icon img-responsive" ng-src="{{ following.img }}" alt="Friend One">
+					<label class="following-name"> {{ following.name }} </label>
+					<br>
+					<span> {{ following.status }} </span><br>
+					<button class="btn btn-link btn-unfollow" ng-click="vm.unfollow(following.name)"><span class="glyphicon glyphicon-remove">Unfollow</button>
+				</td>
+			</tr>
+			
+			<br>
+			<tr align="center">
+				<td>
+					<input type="text" ng-model="vm.newFollowing" placeholder="More followings?" class="form-control text-inline">
+					<div style='color:red' ng-show="vm.failAddFollowing">No such a user!</div>
+					<button class="btn btn-primary btn-inline" id="add-following" ng-click="vm.addFollowing()">Add</button>
+				</td>
+			</tr>
+		</table>
+	</div> <!-- close table container -->
+</div>

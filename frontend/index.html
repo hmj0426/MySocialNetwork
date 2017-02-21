@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="frontendApp">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="author" content="Mengjin Hou">
+		<meta name="description" content="Mengjin's Frontend">
+		<meta name="keywords" content="social, frontend">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-route.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-resource.min.js"></script>
+
+		<link type="text/css" rel="stylesheet" href="styles.css">
+		<link rel="shortcut icon" href="http://www.clipartbest.com/cliparts/di6/e9g/di6e9gRyT.png">
+
+		<script src="app/app.js"></script>
+		<script src="indexCtrl.js"></script> 
+		<script src="app/services/apiSrv.js"></script>
+		<script src="app/services/userSrv.js"></script>
+		<script src="app/status/statusCtrl.js"></script>
+		<script src="app/login/loginCtrl.js"></script>
+		<script src="app/post/postCtrl.js"></script>
+		<script src="app/post/postFilter.js"></script>
+		<script src="app/following/followingCtrl.js"></script>
+		<script src="app/profile/profileCtrl.js"></script>
+
+
+		<title>MengjinZone</title>
+	</head>
+
+<body class="body" ng-controller="IndexCtrl as vm">
+
+
+	<div ng-view></div>
+
+</body>

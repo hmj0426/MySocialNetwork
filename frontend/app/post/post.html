@@ -1,0 +1,108 @@
+<div ng-controller="PostCtrl as vm">
+	<div class="row">
+		<div class="col-sm-8">   <!-- Area to post new cards -->
+			<div class="tablecontainer deco">
+				<table class="newcard">
+					<tr>
+						<!-- <td ng-show="vm.loadImg">  
+							<img class="img-responsive newcard-row newcard" 
+								ng-src="vm.newPostImg" alt="Add Image">
+						</td> -->
+						<td style="">
+							<textarea ng-model='vm.newPost'class="form-control newcard newcard-row" cols="100" rows="100" placeholder="Something want to say...">
+							</textarea>
+						</td>
+           			</tr>
+           			<tr>
+           				<td colspan="2">
+           					<label for="files"> 
+           						<span class="btn btn-primary"><span class="glyphicon glyphicon-picture"></span>  &nbsp;Select Image</span>
+           					</label>
+           					<input style="visibility: hidden;position:absolute;" id="files" 
+           						class="form-control" type="file" accept="image/*" 
+           						onchange="angular.element(this).scope().vm.setFile(this.files)" 
+           						name="files">
+           					<label> &nbsp;{{ vm.fileName }}</label>
+           					<div style="float:right">
+	           					<button class="btn btn-primary" ng-click="vm.cancelNewPost()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+	           					<button class="btn btn-primary" id="new_post" ng-click="vm.addPost()"><span class="glyphicon glyphicon-send"></span> &nbsp;Post</button>
+           					</div>
+           				</td>
+           			</tr>
+            	</table>
+            </div>  
+		</div>
+
+		<div class="col-sm-3" style="height:10em;">  <!--  Website Logo -->
+			<div class="circlehead">
+				<h2 class="welcome">Welcome to GoZone</h2>
+			</div>
+		</div>
+
+		<div class="col-sm-11">   <!-- Search area -->
+			<input type="text" ng-model="vm.searchKeyword" placeholder="Please type searching keywords here" class="form-control searchbar">
+			<button class="btn btn-primary" onclick=""><span class="glyphicon glyphicon-search"></span> Search Here</button>
+		</div>
+	</div> <!-- close row -->
+	
+
+	<div class="row">
+		<div class="col-sm-11">
+			<div ng-repeat="post in vm.posts | orderBy:'-date' | authorContentFilter:vm.searchKeyword" class="cardcontainer deco whole-post">
+				<table class="table-responsive">
+					<tr>
+						<td ng-show="post.img" rowspan="2" class="col-xs-2">
+						<img ng-src="{{ post.img }}" class='img-responsive newcard-row newcard' alt="Card">
+						</td>
+						<td  class="col-xs-6">
+							<label class="post-body">{{ post.body }}</label>
+							<br>
+							<label class="text-muted">by <u class="post-author">{{ post.author }}</u></label>
+							<label class="text-muted">on <u>{{ post.date.toLocaleDateString() }}</u> 
+								<u>{{ post.date.toLocaleTimeString() }}</u></label><br>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="col-xs-6">
+							<button ng-show='vm.getUsername() == post.author' class="btn btn-primary btn-inline post-proc" ng-click="vm.showEditPost( post.id )"><span class="glyphicon glyphicon-edit"></span> &nbsp;Edit</button>
+							<button class="btn btn-primary btn-inline post-proc" ng-click="vm.showComment( post.id )"><span class="glyphicon glyphicon-comment"></span>
+							 &nbsp;Comments ({{ vm.numOfComment[post.id] }})</button>
+							<br><br>
+						</td>
+					</tr>
+
+					<tr ng-show="vm.edit[post.id]">
+						<td class="col-xs-8" colspan="2">
+							<div class="well">
+								<input ng-model="vm.editedPost[post.id]" type="text" class="form-control text-margin">
+								<button class="btn btn-primary btn-inline post-proc" ng-click="vm.editPost(post.id)"><span class="glyphicon glyphicon-ok"></span> &nbsp;Edit Post</button><br><br>
+							</div>
+						</td>
+					</tr>				
+
+					<tr ng-show="vm.comment[post.id]">
+						<td class="col-xs-8" colspan="2">
+							<div class="well">
+								<input ng-model="vm.newComment[post.id]" type="text" class="form-control text-inline">
+								<button class="btn btn-primary btn-inline" ng-click="vm.addComment( post.id )"><span class="glyphicon glyphicon-ok"></span> &nbsp;Add Comment</button><br>
+								<div ng-repeat="comment in post.comments">
+									<label class="comment-author">{{ comment.author }}: </label><br>
+									<label>{{ comment.body }}</label>
+									<br>
+									<label class="text-muted">on <u>{{ comment.date.toLocaleDateString() }}</u> <u>{{ comment.date.toLocaleTimeString() }}</u></label><br>
+									<div ng-show='vm.username == comment.author'>
+										<input ng-show='vm.showEditComment[comment.commentId]' ng-model="vm.editedComment[comment.commentId]" type="text" class="form-control text-inline">
+										<button class="" ng-click="vm.editComment(post.id, comment.commentId )">{{ vm.showEditComment[comment.commentId] ? 'Submit Edit' : 'Edit Comment' }} </button>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>

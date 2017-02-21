@@ -1,0 +1,102 @@
+<div class="body" ng-controller="LoginCtrl as vm">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-1"></div>  <!--  padding -->
+
+            <div class="col-xs-9">  <!-- website logo    -->        
+                <h1 class="welcome"><img id="lightning" src="http://www.clker.com/cliparts/Z/u/C/l/q/K/lightning-bolt.svg" alt="lightning">Welcome to GoZone</h1>
+            </div>
+
+            <div class="col-xs-2"></div>  <!-- padding -->
+        </div> <!-- close row -->
+
+        <div class="row">
+            <div class="col-md-1"></div>  <!-- padding -->
+
+            <div class="col-md-4 formcontainer deco">  <!-- Register Block -->
+
+                <h2>Create an Account</h2>
+
+                <form role="form" id="HW1form">  <!-- Registeration Form -->
+                    <div class="form-group">
+                        <label>Username:  </label><br>
+                        <input type"text" class="form-control" ng-model="vm.registerUsername" 
+                            pattern="^[A-za-z][A-za-z0-9]*$" 
+                            placeholder="Your new username" 
+                            title="only upper or lower case letters and numbers, and do not start with a number" 
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address: </label><br>
+                        <input type="email" class="form-control" ng-model="vm.registerEmail" 
+                            placeholder="eg. xxx@rice.edu" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Zipcode: </label><br>
+                        <input type="text" class="form-control" ng-model="vm.registerZip" 
+                            title="proper zipcode is a 5-digit number"
+                            pattern="\d\d\d\d\d" size="8" maxlength="5" placeholder="eg. 77005" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password: </label><br>
+                        <input type="password" class="form-control" 
+                            placeholder="Case sensitive, should more than 6 characters" 
+                            title="Case sensitive, should more than 6 characters"
+                            pattern="^[\S]{6,}$" ng-model="vm.registerPsw" id="psw" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password Confirmation: </label><br>
+                        <input type="password" class="form-control" placeholder="Please type your password again" ng-model="vm.registerPsw2" id="psw2" required>
+                    </div>
+                    <div style='color:red' ng-show="vm.pswUnmatch">Your passwords entered don't match, please enter them again.<br></div>
+                    <div style='color:red' ng-show="vm.usedUsername">This username has been used.<br></div>
+                    <input type="submit" class="btn btn-primary" id="register-button" value="Register" ng-click="vm.register()">
+                    <input type="reset" class="btn btn-primary" value="Clear Form"></fieldset>
+                </form>
+
+                <div id="register" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modal-title">Notification</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>Congratulations! You have successfully registered an acount in MengjinZone. Now try to log in your account and enjoy yourself here!</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" id="close-modal" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>  <!-- Close registeration div -->
+
+            <div class="col-md-1"></div>  <!-- padding -->
+
+            <div class="col-md-4 formcontainer deco">  <!-- Logging in div -->
+
+                <h2>Sign In</h2>
+
+                <div class="form-group">
+                    <label>Username:</label><br>
+                    <input type="text" ng-model='vm.username' id="login-username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Password:</label><br>
+                    <input type="password" ng-model='vm.password' id="login-password" class="form-control">
+                </div>
+                <div style='color:red' ng-show="vm.failLogin">Your username or password is wrong, please type them again.<br></div>
+                <button class="btn btn-primary btn-block" id="login-button" ng-click="vm.login()">Log In</button>
+                <button class="btn btn-primary btn-block" id="login-button" ng-click="vm.fblogin()">Use Facebook to Log In</button>
+            </div>  <!-- Close logging in div -->
+        </div>  <!-- Close row -->
+    </div>   <!-- Close grid container -->
+</div>

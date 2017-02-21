@@ -1,0 +1,25 @@
+<div ng-controller="StatusCtrl as vm">
+	<div class="tablecontainer deco" align="center">
+		<table class="newcard">
+			<tr align="center">
+				<td><button class="btn btn-link btn-inline" ng-click="vm.logout()">Log Out</button></td>
+				<td><button class="btn btn-link btn-inline" id="profile-director" ng-click="vm.profile()">Profile</button></td>
+			</tr>
+			<tr align="center">
+				<td colspan="2"><img class="img-responsive img-circle" ng-src="{{ vm.userImg }}" alt="Profile image"></td>  <!-- Profile image -->
+			</tr>
+			<tr align="center">
+				<td colspan="2"><label id="username">{{ vm.username }}</label></td>
+			</tr>
+			<tr align="center">
+				<td id="userstatus" colspan="2">{{ vm.status }}</td>
+			</tr>
+			<tr align="center">
+				<td colspan="2">
+					<input ng-model="vm.newUserStatus" type="text" placeholder="What is your new status?" class="form-control text-block text-margin">
+					<button class="btn btn-primary btn-inline" id="btn-update-status" ng-click="vm.updateStatus()"><span class="glyphicon glyphicon-edit"></span> Update</button>
+				</td>
+			</tr>
+		</table>
+	</div>  <!-- Close table container -->
+</div>

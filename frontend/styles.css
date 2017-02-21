@@ -1,0 +1,113 @@
+/*My own CSS*/
+
+.body {
+  background-color: rgb(213, 213, 188);
+}
+
+img#lightning {
+  width:20%;
+  display: inline;
+  height: auto;
+}
+
+.icon {
+  width:56%;
+  margin:0.5em 0;
+}
+
+.circlehead {
+  background-color: rgba(153, 51, 255, 0.2);
+  border-radius:50%;
+}
+
+.welcome {
+  padding:2.5em 0;
+  text-align:center;
+  font-family: Phosphate;
+}
+
+.formcontainer {
+  margin: 1em;
+  padding: 0em 1.5em 1.5em 1.5em;
+}
+
+.tablecontainer {
+  padding: 1em;
+  margin: 1em;
+}
+
+.cardcontainer {
+  margin: 1em 0 0 0;
+  padding: 1em;
+}
+
+.deco {
+  border: solid #9d9d62 1px;
+  border-radius: 0.4em;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  background-color: #a7a772;
+}
+
+.btn-inline {
+  display:inline;
+  margin-left:2%;
+}
+
+.text-inline {
+  display:inline;
+  width:63%;
+}
+
+.newcard {
+  margin: 0.4em 0.5em; 
+}
+
+.searchbar{
+  display:inline;
+  width:85%;
+}
+
+.newcard-row {
+  max-height:10em;
+  border-radius: 0.4em;
+  max-width: 95%;
+}
+
+.align-center {
+  align:center;
+}
+
+.currentinfo {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.currentinfo td, .currentinfo th {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.bkg-block{
+  background:#e89393;
+  display: block;
+  top:18%;
+  height:26%;
+  position: absolute;
+
+}
+
+.post-proc{
+  width:30%;
+}
+
+.comment-author {
+  color: blue;
+}
+
+.text-margin {
+  margin: 0.4em 0;
+}
